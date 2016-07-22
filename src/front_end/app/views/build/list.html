@@ -1,0 +1,29 @@
+<div>
+   
+	<table class="table table-condensed table-bordered table-hover">
+		<thead>
+			<tr>
+				<th> ID </th>
+				<th>BDR</th>
+				<th>Revision</th>
+				<th>Branch</th>
+				<th>DEV BOX</th>
+				<th>Build date</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-class-even="'even'" ng-class='{selected: $index==selectedRow}'  ng-click="selectUser($index)"  ng-repeat="build in builds | orderBy:'id'">
+				<td>{{build.id}}</td>
+				<td>{{build.build_request_id}}</td>
+				<td>{{build.svn_revision}}</td>
+				<td>{{build.branch}}</td>
+				<td>{{build.env_name}}</td>
+				<td>{{build.build_date | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+				<td><a class="btn btn-primary" href="#/builds/{{build.id}}" ng-class="{disabled: index < 0}">Edit</a></td>
+				<td><a class="btn btn-primary" ng-click="deleteBuild(build, $index)" ng-class="{disabled: index < 0}">delete</a></td>
+			<tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,25 @@
+<h2>Build Detail</h2>
+<form ng-submit="saveBuild()" >
+
+<div>
+  <label>BDR</label><input ng-model="build.build_request_id">
+</div>
+<div>
+  <label>Revision</label><input ng-model="build.svn_revision">
+</div>
+<div>
+  <label>Branch</label><input ng-model="build.branch">
+</div>
+<div>
+  <label>DEV BOX</label> <input ng-model="build.env_name">
+</div>
+
+<div >
+	<label>Build Date</label>
+	<input id="disabledInput" type="text" placeholder="{{build.build_date | date:'yyyy-MM-dd HH:mm:ss Z'}}" disabled>
+</div>
+
+<div>{{build.build_date}}</div>
+<input type="submit" value="Submit">
+
+</form>
